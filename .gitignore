@@ -1,0 +1,7 @@
+/components
+/node_modules
+/dist
+/.tmp
+
+**.swp
+.DS_Store
