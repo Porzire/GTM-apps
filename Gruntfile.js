@@ -6,20 +6,20 @@ module.exports = function(grunt) {
             html: 'src/index.html',
             options: {
                 src: 'src',
-                dest: 'dist'
+                dest: 'app'
             }
         },
         copy: {
             dist: {
-                files: [{
-                    src: 'src/index.html',
-                    dest: 'dist/index.html'
-                }]
+                files: [
+                    {src: 'src/index.html', dest: 'app/index.html' },
+                    {src: 'components/bootstrap/fonts/**', dest: 'app/fonts/', flatten:true, expand:true}
+                ]
             }
         },
         usemin: {
-            html: ['dist/index.html'],
-            css: ['dist/css/style.css']
+            html: ['app/index.html'],
+            css: ['app/css/style.css']
         }
     });
 

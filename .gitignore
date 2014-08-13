@@ -1,6 +1,7 @@
 /components
 /node_modules
-/dist
+/app
+/log
 /.tmp
 
 **.swp

@@ -1,0 +1,18 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+ErrorDocument 404 /gtm/404.html
+
+<IfModule mod_rewrite.c>
+    # Rewrite /gtm/ to /gtm/app/.
+    RewriteBase /gtm/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^$  app [R=301,L]
+
+    # Block access to "hidden" directories or files whose names begin with a
+    # period. This includes directories used by version control systems such as
+    # Subversion or Git.
+    RewriteCond %{SCRIPT_FILENAME} -d [OR]
+    RewriteCond %{SCRIPT_FILENAME} -f
+    RewriteRule "(^|/)\." - [F]
+</IfModule>

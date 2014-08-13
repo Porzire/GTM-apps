@@ -186,9 +186,12 @@ var compute = function(){
         // Ajax call for similarities.
         $.ajax({
             type: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json'
+            },
             dataType: 'json',
-            url: 'http://ares.research.cs.dal.ca:8080/gtm-api/services/weighted',
+            crossDomain: true,
+            url: 'http://jiemei.cs.dal.ca:8080/gtm-api/services/weighted',
             data: JSON.stringify(request),
             success: function(response) {
                 $('#result-p').html(createResult(cvs, response['sims']));
